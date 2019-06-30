@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <SeekBar
-        android:id="@+id/seekBar"
+        android:id="@+id/timerSeekBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="34dp"
@@ -25,27 +25,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.571"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar"
-        app:srcCompat="@drawable/Egg" />
+        app:layout_constraintTop_toBottomOf="@+id/timerSeekBar"
+        app:srcCompat="@drawable/egg" />
 
     <TextView
         android:id="@+id/timerTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="156dp"
+        android:layout_height="69dp"
         android:layout_marginTop="8dp"
         android:text="00:00"
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.491" />
 
     <Button
         android:id="@+id/goButton"
-        android:layout_width="wrap_content"
+        android:layout_width="88dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:onClick="startTimer"
         android:text="GO"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="351dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timerTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
