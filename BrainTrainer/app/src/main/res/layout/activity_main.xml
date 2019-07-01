@@ -117,14 +117,16 @@
 
         <TextView
             android:id="@+id/scoreTextView"
-            android:layout_width="134dp"
-            android:layout_height="66dp"
+            android:layout_width="107dp"
+            android:layout_height="59dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:background="@android:color/holo_orange_dark"
+            android:paddingLeft="10sp"
+            android:paddingTop="4sp"
             android:text="10/150"
-            android:textSize="40sp"
+            android:textSize="30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
