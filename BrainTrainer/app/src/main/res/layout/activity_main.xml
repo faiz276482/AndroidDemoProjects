@@ -134,14 +134,13 @@
             android:layout_height="53dp"
             android:layout_marginStart="24dp"
             android:layout_marginLeft="24dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginRight="4dp"
             android:paddingLeft="20sp"
             android:text="31 + 8 ?"
             android:textSize="28sp"
             app:layout_constraintEnd_toStartOf="@+id/scoreTextView"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/timerTextView"
             app:layout_constraintTop_toTopOf="parent" />
 
