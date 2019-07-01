@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -24,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
     TextView correctTextView;
     ArrayList<Integer> answers;
     TextView scoreTextView;
+    TextView timerTextView;
+    Button mainMenuButton;
+    Button playAgainButton;
     int score=0;
     int total=0;
     int tagOption=0;
@@ -34,6 +38,40 @@ public class MainActivity extends AppCompatActivity {
         addContraintLayout.setVisibility(View.VISIBLE);
         tagOption=Integer.parseInt(view.getTag().toString());
         newQs(tagOption);
+        playAgain(view);
+    }
+
+    public void playAgain(View view){
+        score=0;
+        total=0;
+        timerTextView.setText("30 s");
+        scoreTextView.setText("0/0");
+        mainMenuButton.setVisibility(View.INVISIBLE);
+        playAgainButton.setVisibility(View.INVISIBLE);
+        correctTextView.setText("");
+        optionButton1.setEnabled(true);
+        optionButton2.setEnabled(true);
+        optionButton3.setEnabled(true);
+        optionButton4.setEnabled(true);
+
+        new CountDownTimer(30100, 1000) {
+            @Override
+            public void onTick(long l) {
+                timerTextView.setText((l/1000)+" s");
+            }
+
+            @Override
+            public void onFinish() {
+                correctTextView.setText("DONE!");
+                mainMenuButton.setVisibility(View.VISIBLE);
+                playAgainButton.setVisibility(View.VISIBLE);
+                optionButton1.setEnabled(false);
+                optionButton2.setEnabled(false);
+                optionButton3.setEnabled(false);
+                optionButton4.setEnabled(false);
+            }
+        }.start();
+
     }
 
     public void newQs(int b)
@@ -68,9 +106,9 @@ public class MainActivity extends AppCompatActivity {
         locationOfCorrectAnswer=rand.nextInt(4);
         answers=new ArrayList<Integer>();
 
-        for(int i=0;i<5;i++)
+        for(int i=0; i<4; i++)
         {
-            if(i==locationOfCorrectAnswer)
+            if(i == locationOfCorrectAnswer)
             {
                 answers.add((a+b));
             }
@@ -86,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
         optionButton1.setText(Integer.toString(answers.get(0)));
         optionButton2.setText(Integer.toString(answers.get(1)));
         optionButton3.setText(Integer.toString(answers.get(2)));
-        optionButton4.setText(Integer.toString(answers.get(4)));
+        optionButton4.setText(Integer.toString(answers.get(3)));
 
     }
 
@@ -104,17 +142,17 @@ public class MainActivity extends AppCompatActivity {
         locationOfCorrectAnswer=rand.nextInt(4);
         answers=new ArrayList<Integer>();
 
-        for(int i=0;i<5;i++)
+        for(int i=0;i<4;i++)
         {
             if(i==locationOfCorrectAnswer)
             {
                 answers.add((a-b));
             }
             else{
-                int wrongAnswer=rand.nextInt(201);
+                int wrongAnswer=rand.nextInt(101);
                 while(wrongAnswer==(a-b))
                 {
-                    wrongAnswer=rand.nextInt(201);
+                    wrongAnswer=rand.nextInt(101);
                 }
                 answers.add(wrongAnswer);
             }
@@ -122,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
         optionButton1.setText(Integer.toString(answers.get(0)));
         optionButton2.setText(Integer.toString(answers.get(1)));
         optionButton3.setText(Integer.toString(answers.get(2)));
-        optionButton4.setText(Integer.toString(answers.get(4)));
+        optionButton4.setText(Integer.toString(answers.get(3)));
 
     }
 
@@ -135,17 +173,17 @@ public class MainActivity extends AppCompatActivity {
         locationOfCorrectAnswer=rand.nextInt(4);
         answers=new ArrayList<Integer>();
 
-        for(int i=0;i<5;i++)
+        for(int i=0;i<4;i++)
         {
             if(i==locationOfCorrectAnswer)
             {
                 answers.add((a*b));
             }
             else{
-                int wrongAnswer=rand.nextInt(41);
+                int wrongAnswer=rand.nextInt(401);
                 while(wrongAnswer==(a*b))
                 {
-                    wrongAnswer=rand.nextInt(41);
+                    wrongAnswer=rand.nextInt(401);
                 }
                 answers.add(wrongAnswer);
             }
@@ -153,35 +191,40 @@ public class MainActivity extends AppCompatActivity {
         optionButton1.setText(Integer.toString(answers.get(0)));
         optionButton2.setText(Integer.toString(answers.get(1)));
         optionButton3.setText(Integer.toString(answers.get(2)));
-        optionButton4.setText(Integer.toString(answers.get(4)));
+        optionButton4.setText(Integer.toString(answers.get(3)));
 
     }
 
     public void newDivQs()
     {
         Random rand=new Random();
-        int a=rand.nextInt(21);
-        int b=rand.nextInt(21);
-        while(a<=b)
+        int a=rand.nextInt(101);
+        int b=rand.nextInt(101);
+        while(true)
         {
-            a=rand.nextInt(21);
-            b=rand.nextInt(21);
+            a=rand.nextInt(101);
+            b=rand.nextInt(101);
+            if(a>=b && a%b==0)
+            {
+                break;
+            }
+
         }
         sumTextView.setText(a+"/"+b+"=?");
         locationOfCorrectAnswer=rand.nextInt(4);
         answers=new ArrayList<Integer>();
 
-        for(int i=0;i<5;i++)
+        for(int i=0;i<4;i++)
         {
             if(i==locationOfCorrectAnswer)
             {
                 answers.add((a/b));
             }
             else{
-                int wrongAnswer=rand.nextInt(41);
+                int wrongAnswer=rand.nextInt(101);
                 while(wrongAnswer==(a/b))
                 {
-                    wrongAnswer=rand.nextInt(41);
+                    wrongAnswer=rand.nextInt(101);
                 }
                 answers.add(wrongAnswer);
             }
@@ -189,7 +232,7 @@ public class MainActivity extends AppCompatActivity {
         optionButton1.setText(Integer.toString(answers.get(0)));
         optionButton2.setText(Integer.toString(answers.get(1)));
         optionButton3.setText(Integer.toString(answers.get(2)));
-        optionButton4.setText(Integer.toString(answers.get(4)));
+        optionButton4.setText(Integer.toString(answers.get(3)));
 
     }
 
@@ -228,6 +271,9 @@ public class MainActivity extends AppCompatActivity {
         sumTextView=findViewById(R.id.sumTextView);
         correctTextView=findViewById(R.id.correctTextView);
         scoreTextView=findViewById(R.id.scoreTextView);
+        timerTextView=findViewById(R.id.timerTextView);
+        mainMenuButton=findViewById(R.id.mainMenuButton);
+        playAgainButton=findViewById(R.id.playAgainButton);
 
         optionButton1=findViewById(R.id.optionButton1);
         optionButton2=findViewById(R.id.optionButton2);
@@ -237,6 +283,8 @@ public class MainActivity extends AppCompatActivity {
         addContraintLayout=findViewById(R.id.addConstraintLayout);
         addContraintLayout.setVisibility(View.INVISIBLE);
         scoreTextView.setText(score+"/"+total);
+        correctTextView.setText("");
+
 
 
 
