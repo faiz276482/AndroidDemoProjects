@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Correct!", Toast.LENGTH_SHORT).show();
         }
         else {
-            Toast.makeText(getApplicationContext(), "Inorrect!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Inorrect! it was "+celebList.get(chosenCeleb), Toast.LENGTH_SHORT).show();
         }
 
         newQs();
@@ -110,25 +110,25 @@ public class MainActivity extends AppCompatActivity {
         ImageDownloader imageTask=new ImageDownloader();
         try {
             imageView.setImageBitmap(imageTask.execute(celebUrls.get(chosenCeleb)).get());
-            locationOfCorrectAnswer=chosenCeleb;
+            locationOfCorrectAnswer=rand.nextInt(4);
             answers=new ArrayList<String>();
-            int right=rand.nextInt(4);
+
             for(int i=0; i<4;i++)
             {
                 int wrong=0;
-                if(i!=right)
+                if(i!=locationOfCorrectAnswer)
                 {
                     wrong=rand.nextInt(celebUrls.size());
-                    while(wrong==locationOfCorrectAnswer){
+                    while(wrong==chosenCeleb){
                         wrong=rand.nextInt(celebUrls.size());
                     }
                     answers.add(celebList.get(wrong));
                 }
                 else {
-                    answers.add(celebList.get(locationOfCorrectAnswer));
+                    answers.add(celebList.get(chosenCeleb));
                 }
             }
-            locationOfCorrectAnswer=right;
+
             optionButton1.setText(answers.get(0));
             optionButton2.setText(answers.get(1));
             optionButton3.setText(answers.get(2));
