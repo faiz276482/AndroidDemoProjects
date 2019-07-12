@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
             places.add("Add new place");
             locations.add(new LatLng(0,0));
         }
-        
+
 
         arrayAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,places);
         listView.setAdapter(arrayAdapter);
