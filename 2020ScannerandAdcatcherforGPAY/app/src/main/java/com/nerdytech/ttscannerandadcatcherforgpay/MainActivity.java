@@ -55,9 +55,7 @@ public class MainActivity extends AppCompatActivity implements Runnable {
             }
         });
         mAdView = findViewById(R.id.adView);
-
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR).build();
+        AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
         fab = findViewById(R.id.button);
