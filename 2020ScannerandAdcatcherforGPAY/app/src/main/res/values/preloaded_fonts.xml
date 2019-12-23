@@ -1,0 +1,16 @@
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/amaranth</item>
+        <item>@font/amita</item>
+        <item>@font/arizonia</item>
+        <item>@font/arya</item>
+        <item>@font/asset</item>
+        <item>@font/bentham</item>
+        <item>@font/bonbon</item>
+        <item>@font/bungee</item>
+        <item>@font/dr_sugiyama</item>
+        <item>@font/gloria_hallelujah</item>
+        <item>@font/great_vibes</item>
+        <item>@font/zeyada</item>
+    </array>
+</resources>
