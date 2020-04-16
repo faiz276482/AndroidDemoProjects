@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         altitudeTextView=findViewById(R.id.altitudeTextView);
         addressTextView=findViewById(R.id.addressTextView);
 
+
         locationManager=(LocationManager)this.getSystemService(Context.LOCATION_SERVICE);
         locationListener=new LocationListener() {
             @Override

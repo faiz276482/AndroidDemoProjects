@@ -13,6 +13,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
             public void onLocationChanged(Location location) {
                 Log.i("Location",location.toString());
                 System.out.println("locaton:"+location.toString());
+                Toast.makeText(MainActivity.this, location.toString(), Toast.LENGTH_SHORT).show();
             }
 
             @Override

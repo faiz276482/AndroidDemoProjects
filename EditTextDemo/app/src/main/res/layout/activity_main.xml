@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:paddingStart="15dp"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:id="@+id/emailEditText"
+        android:textColorHint="#6E6E6E"
+        android:background="@drawable/edittextbg"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:hint="Username"
+        android:paddingStart="15dp"
+        android:id="@+id/usernameEditText"
+        android:layout_below="@+id/emailEditText"
+        android:textColorHint="#6E6E6E"
+        android:background="@drawable/edittextbg"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:hint="password"
+        android:paddingStart="15dp"
+        android:inputType="textPassword"
+        android:layout_below="@+id/usernameEditText"
+        android:id="@+id/passwordEditText"
+        android:textColorHint="#6E6E6E"
+        android:background="@drawable/edittextbg"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Send"
+        android:id="@+id/sendBtn"
+        android:textColor="#fff"
+        android:background="@color/colorPrimary"
+        android:layout_below="@+id/passwordEditText"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"/>
+
+</RelativeLayout>
