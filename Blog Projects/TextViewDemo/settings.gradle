@@ -1,0 +1,2 @@
+rootProject.name='TextView Demo'
+include ':app'
